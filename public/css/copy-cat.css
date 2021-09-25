@@ -1,20 +1,8 @@
-* {
+/* * {
     user-select: auto !important;
     -webkit-touch-callout: auto !important;
     -webkit-user-select: auto !important;
     -khtml-user-select: auto !important;
     -moz-user-select: auto !important;
     -ms-user-select: auto !important;
-}
-
-#copy-cat-context-menu {
-    width: 35px;
-    height: 35px;
-    box-shadow: 3px;
-    position: absolute;
-    background: #3c4c5c url('chrome-extension://__MSG_@@extension_id__/icon/copy_white.png');
-    background-size: contain;
-    cursor: pointer;
-    border-radius: 3px;
-    box-shadow: 5px;
-}
+} */
