@@ -78,8 +78,8 @@ export default {
   right: 0px;
 }
 .cc-btn-logo {
-  width: 35px;
-  height: 35px;
+  width: 28px;
+  height: 28px;
   position: absolute;
   cursor: pointer;
   z-index: 999999999;
