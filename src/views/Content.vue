@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="__cc-app">
     <img
       v-on:click="copyContent"
       v-show="showCopyBtn"
@@ -27,13 +27,13 @@ export default {
   methods: {
     getSelectedText () {
       try {
-        var selecter = window.getSelection().toString();
+        let selecter = window.getSelection().toString();
         if (selecter != null && selecter.trim() != "") {
           return selecter;
         }
       } catch (err) {
-        var selecter = document.selection.createRange();
-        var s = selecter.text;
+        let selecter = document.selection.createRange();
+        let s = selecter.text;
         if (s != null && s.trim() != "") {
           return;
         }
@@ -59,7 +59,14 @@ export default {
       }
       this.showCopyBtn = true;
       this.copyBtnExtraStyle = { top: `${e.pageY + 35}px`, left: `${e.pageX + 35}px` };
-    })
+    },false);
+    document.addEventListener('copy',e=>{
+      e.preventDefault();
+      let clipboardData = e.clipboardData||window.clipboardData();
+      clipboardData.setData('text/plain',this.getSelectedText());
+      return true;
+    },false);
+
   }
 }
 </script>
@@ -86,7 +93,10 @@ export default {
   -moz-user-select: auto !important;
   -ms-user-select: auto !important;
 }
-#app {
+#__cc-app {
   all: initial;
+}
+.el-message{
+  z-index: 99999!important;
 }
 </style>
