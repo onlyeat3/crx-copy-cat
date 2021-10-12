@@ -31,10 +31,11 @@
         "<all_urls>"
       ],
       "css": [
-        "/css/copy-cat.css"
+        "/css/copy-cat.css",
+        "/css/content-embed.css"
       ],
       "js": [
-        "/js/content-script.js"
+        "/js/content-embed.js"
       ]
     }
   ]
