@@ -3,10 +3,7 @@
   "name": "__MSG_extName__",
   "description": "在任意网站拷贝任意内容",
   "default_locale": "zh_CN",
-  "permissions": [
-    "<all_urls>",
-    "*://*/*"
-  ],
+  "permissions": [],
   "icons": {
     "16": "icons/16.png",
     "48": "icons/48.png",
