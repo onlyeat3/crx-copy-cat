@@ -2,10 +2,14 @@ module.exports = {
   filenameHashing: false,
   lintOnSave: false,
   pages: {},
+  css: {
+    extract: true
+  },
   pluginOptions: {
     browserExtension: {
       components: {
-        contentScripts: true
+        contentScripts: true,
+        background: true,
       },
       componentOptions: {
         contentScripts: {
