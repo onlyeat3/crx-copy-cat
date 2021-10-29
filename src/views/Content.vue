@@ -42,6 +42,7 @@ export default {
     copyContent () {
       document.execCommand('copy');
       this.showCopyBtn = false;
+      window.getSelection().empty();
       this.$message({
         message: '复制好了ヽ(=^･ω･^=)丿',
         type: 'success',
@@ -51,6 +52,11 @@ export default {
   },
   created () {
     document.addEventListener('mousedown', e => {
+      console.log(e.target);
+      //是按钮
+      if (e.target.className.indexOf('cc-btn-logo') > -1) {
+        return;
+      }
       this.showCopyBtn = false;
       return true;
     }, false);
