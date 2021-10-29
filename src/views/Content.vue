@@ -52,7 +52,6 @@ export default {
   },
   created () {
     document.addEventListener('mousedown', e => {
-      console.log(e.target);
       //是按钮
       if (e.target.className.indexOf('cc-btn-logo') > -1) {
         return;
