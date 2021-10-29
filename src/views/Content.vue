@@ -50,22 +50,29 @@ export default {
     }
   },
   created () {
-    document.addEventListener('mouseup', e => {
-      e.preventDefault();
-      let text = this.getSelectedText();
-      if (text == null || text == '') {
-        this.showCopyBtn = false;
-        return;
-      }
-      this.showCopyBtn = true;
-      this.copyBtnExtraStyle = { top: `${e.pageY + 35}px`, left: `${e.pageX + 35}px` };
-    },false);
-    document.addEventListener('copy',e=>{
-      e.preventDefault();
-      let clipboardData = e.clipboardData||window.clipboardData();
-      clipboardData.setData('text/plain',this.getSelectedText());
+    document.addEventListener('mousedown', e => {
+      this.showCopyBtn = false;
       return true;
-    },false);
+    }, false);
+    document.addEventListener('mouseup', e => {
+      setTimeout(() => {
+        let text = this.getSelectedText();
+        if (text == null || text == '') {
+          this.showCopyBtn = false;
+          return;
+        }
+        this.showCopyBtn = true;
+        this.copyBtnExtraStyle = { top: `${e.pageY + 35}px`, left: `${e.pageX + 35}px` };
+      }, 5);
+      return true;
+    }, false);
+
+    document.addEventListener('copy', e => {
+      e.preventDefault();
+      let clipboardData = e.clipboardData || window.clipboardData();
+      clipboardData.setData('text/plain', this.getSelectedText());
+      return true;
+    }, false);
 
   }
 }
@@ -96,7 +103,7 @@ export default {
 #__cc-app {
   all: initial;
 }
-.el-message{
-  z-index: 99999!important;
+.el-message {
+  z-index: 99999 !important;
 }
 </style>
