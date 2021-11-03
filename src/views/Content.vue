@@ -51,6 +51,8 @@ export default {
     }
   },
   created () {
+    //防止JS禁用选择
+    document.onselectstart = function () { return true; }
     document.addEventListener('mousedown', e => {
       //是按钮
       if (e.target.className.indexOf('cc-btn-logo') > -1) {
