@@ -21,10 +21,46 @@ export default {
     return {
       showCopyBtn: false,
       showSuccessAlert: false,
-      copyBtnExtraStyle: {}
+      copyBtnExtraStyle: {},
+      copying: false,
     }
   },
   methods: {
+    fallbackCopyTextToClipboard (text) {
+      let textArea = document.createElement("textarea");
+      textArea.value = text;
+
+      // Avoid scrolling to bottom
+      textArea.style.top = "0";
+      textArea.style.left = "0";
+      textArea.style.position = "fixed";
+
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+
+      try {
+        var successful = document.execCommand('copy');
+        var msg = successful ? 'successful' : 'unsuccessful';
+        console.log('Fallback: Copying text command was ' + msg);
+      } catch (err) {
+        console.error('Fallback: Oops, unable to copy', err);
+      }
+
+      document.body.removeChild(textArea);
+    },
+    copyTextToClipboard (text) {
+      if (!navigator.clipboard) {
+        this.fallbackCopyTextToClipboard.call(this, text);
+        return;
+      }
+      navigator.clipboard.writeText(text).then(function () {
+        console.log('Async: Copying to clipboard was successful!');
+      }, function (err) {
+        console.error('Async: Could not copy text: ', err);
+      });
+    },
+
     getSelectedText () {
       try {
         let selecter = window.getSelection().toString();
@@ -40,7 +76,7 @@ export default {
       }
     },
     copyContent () {
-      document.execCommand('copy');
+      this.copyTextToClipboard(this.getSelectedText());
       this.showCopyBtn = false;
       window.getSelection().empty();
       this.$message({
@@ -86,14 +122,6 @@ export default {
       }, 5);
       return true;
     }, false);
-
-    document.addEventListener('copy', e => {
-      e.preventDefault();
-      let clipboardData = e.clipboardData || window.clipboardData();
-      clipboardData.setData('text/plain', this.getSelectedText());
-      return true;
-    }, false);
-
   }
 }
 </script>

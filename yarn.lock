@@ -3984,9 +3984,9 @@ flush-write-stream@^1.0.0:
     readable-stream "^2.3.6"
 
 follow-redirects@^1.0.0:
-  version "1.14.4"
-  resolved "https://registry.nlark.com/follow-redirects/download/follow-redirects-1.14.4.tgz?cache=0&sync_timestamp=1631622163078&other_urls=https%3A%2F%2Fregistry.nlark.com%2Ffollow-redirects%2Fdownload%2Ffollow-redirects-1.14.4.tgz#838fdf48a8bbdd79e52ee51fb1c94e3ed98b9379"
-  integrity sha1-g4/fSKi73XnlLuUfsclOPtmLk3k=
+  version "1.14.7"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.14.7.tgz#2004c02eb9436eee9a21446a6477debf17e81685"
+  integrity sha512-+hbxoLbFMbRKDwohX8GkTataGqO6Jb7jGwpAlwgy2bIz25XtRm7KEzJM76R1WiNT5SwZkX4Y75SwBolkpmE7iQ==
 
 for-in@^1.0.2:
   version "1.0.2"
@@ -4374,6 +4374,11 @@ hosted-git-info@^2.1.4:
   version "2.8.9"
   resolved "https://registry.nlark.com/hosted-git-info/download/hosted-git-info-2.8.9.tgz#dffc0bf9a21c02209090f2aa69429e1414daf3f9"
   integrity sha1-3/wL+aIcAiCQkPKqaUKeFBTa8/k=
+
+hotkeys-js@^3.9.3:
+  version "3.9.3"
+  resolved "https://mirrors.cloud.tencent.com/npm/hotkeys-js/-/hotkeys-js-3.9.3.tgz#4b755cc695b388d7f93a83aff4b0c2a45719996c"
+  integrity sha512-s+f0xyvDmf6+DyrFQ2SY+eA7lbvMbjqkqi0I0SpMgnN5tZx7DeH8nsWhkJR4KEq3pxDPHJppDUhdt1rZFW5LeQ==
 
 hpack.js@^2.1.6:
   version "2.1.6"
